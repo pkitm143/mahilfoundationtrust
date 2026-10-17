@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>महिला फाउंडेशन ट्रस्ट | Impact & Results Showcase - Jaunpur</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Interactive Impact Visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            maroon: '#800020',    // Trust Deep Maroon
+                            maroonlight: '#9b1b30',
+                            saffron: '#d97706',   // Warm Saffron/Gold
+                            saffronlight: '#fef3c7',
+                            forest: '#15803d',    // Deep Green for verified/growth
+                            slate: '#0f172a',
+                            cream: '#fdfbf7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'Noto Sans Devanagari', 'sans-serif'],
+                        devanagari: ['Noto Sans Devanagari', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            background-color: #faf9f6;
+        }
+        .modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Top Contact & Tax Exemption Header Bar -->
+    <div class="bg-brand-slate text-white text-xs py-2 px-4 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="tel:+918737066742" class="hover:text-brand-saffron transition flex items-center gap-1.5 font-medium">
+                    <i class="fas fa-phone text-brand-saffron"></i> +91 87370 66742
+                </a>
+                <a href="tel:+919565757775" class="hidden sm:flex hover:text-brand-saffron transition items-center gap-1.5 font-medium">
+                    <i class="fas fa-mobile-screen text-brand-saffron"></i> +91 95657 57775
+                </a>
+                <a href="mailto:mahilfoundatiotrust@gmail.com" class="hidden md:flex hover:text-brand-saffron transition items-center gap-1.5 font-medium">
+                    <i class="fas fa-envelope text-brand-saffron"></i> mahilfoundatiotrust@gmail.com
+                </a>
+                <span class="hidden lg:flex items-center gap-1.5 text-slate-300">
+                    <i class="fas fa-location-dot text-brand-saffron"></i> देवकली, केराकत, जौनपुर (उत्तर प्रदेश)
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span class="text-[11px] bg-brand-forest text-white px-2.5 py-0.5 rounded-full font-bold shadow-sm flex items-center gap-1">
+                    <i class="fas fa-shield-check"></i> 80G Certified NGO
+                </span>
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-slate-800 rounded-lg p-0.5 border border-slate-700">
+                    <button onclick="toggleLanguage('hi')" id="btn-hi" class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-brand-maroon text-white transition">हिंदी</button>
+                    <button onclick="toggleLanguage('en')" id="btn-en" class="px-2.5 py-0.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition">English</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="bg-white/95 backdrop-blur-md shadow-md sticky top-8 z-40 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Trust Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-maroon via-brand-maroonlight to-brand-saffron flex items-center justify-center text-white text-2xl font-black shadow-md group-hover:scale-105 transition transform">
+                        <i class="fas fa-hands-holding-child"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg sm:text-xl font-black text-brand-maroon leading-tight" data-hi="महिला फाउंडेशन ट्रस्ट" data-en="Mahil Foundation Trust">
+                            महिला फाउंडेशन ट्रस्ट
+                        </div>
+                        <div class="text-xs text-brand-saffron font-bold tracking-wide" data-hi="प्रभाव एवं वार्षिक परिणाम रिर्पोट (केराकत, जौनपुर)" data-en="Impact & Results Showcase (Kerakat, Jaunpur)">
+                            प्रभाव एवं वार्षिक परिणाम रिर्पोट (केराकत, जौनपुर)
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#overview" class="text-slate-700 hover:text-brand-maroon font-semibold transition" data-hi="मुख्य परिणाम" data-en="Results Overview">मुख्य परिणाम</a>
+                    <a href="#analytics" class="text-slate-700 hover:text-brand-maroon font-semibold transition" data-hi="प्रभाव विश्लेषण" data-en="Impact Analytics">प्रभाव विश्लेषण</a>
+                    <a href="#stories" class="text-slate-700 hover:text-brand-maroon font-semibold transition" data-hi="सफलता की कहानियाँ" data-en="Success Stories">सफलता की कहानियाँ</a>
+                    <a href="#reports" class="text-slate-700 hover:text-brand-maroon font-semibold transition" data-hi="ऑडिट व रिपोर्ट्स" data-en="Annual Reports">ऑडिट व रिपोर्ट्स</a>
+                    <a href="#contact" class="text-slate-700 hover:text-brand-maroon font-semibold transition" data-hi="संपर्क" data-en="Contact Us">संपर्क</a>
+                    
+                    <button onclick="openDonateModal()" class="bg-brand-saffron hover:bg-amber-600 text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fas fa-heart text-amber-100"></i>
+                        <span data-hi="सहयोग करें" data-en="Support Cause">सहयोग करें</span>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-2">
+                    <button onclick="openDonateModal()" class="bg-brand-saffron text-white text-xs px-3 py-2 rounded-full font-bold shadow">
+                        <i class="fas fa-heart mr-1"></i> <span data-hi="दान" data-en="Donate">दान</span>
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-800 p-2 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#overview" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-brand-maroon font-semibold border-b border-slate-100" data-hi="मुख्य परिणाम" data-en="Results Overview">मुख्य परिणाम</a>
+            <a href="#analytics" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-brand-maroon font-semibold border-b border-slate-100" data-hi="प्रभाव विश्लेषण" data-en="Impact Analytics">प्रभाव विश्लेषण</a>
+            <a href="#stories" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-brand-maroon font-semibold border-b border-slate-100" data-hi="सफलता की कहानियाँ" data-en="Success Stories">सफलता की कहानियाँ</a>
+            <a href="#reports" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-brand-maroon font-semibold border-b border-slate-100" data-hi="वार्षिक ऑडिट रिपोर्ट्स" data-en="Annual Reports">वार्षिक ऑडिट रिपोर्ट्स</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 hover:text-brand-maroon font-semibold border-b border-slate-100" data-hi="संपर्क" data-en="Contact Us">संपर्क</a>
+            
+            <div class="pt-2">
+                <button onclick="openVolunteerModal(); toggleMobileMenu();" class="w-full text-center bg-brand-maroon text-white py-2.5 rounded-lg font-bold hover:bg-brand-maroonlight transition" data-hi="स्वयंसेवक के रूप में जुड़ें" data-en="Join as Volunteer">
+                    स्वयंसेवक के रूप में जुड़ें
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- Hero Section: Impact Showcase Title -->
+        <section class="relative bg-gradient-to-r from-brand-maroon via-brand-maroonlight to-slate-900 text-white py-16 md:py-20 px-4 overflow-hidden shadow-xl">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <div class="max-w-7xl mx-auto text-center relative z-10 space-y-5">
+                <span class="inline-block bg-brand-saffron text-slate-900 text-xs sm:text-sm font-extrabold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg" data-hi="प्रमाणित सामाजिक परिणाम व वार्षिक प्रभाव रिपोर्ट" data-en="Verified Impact & Transparent Annual Results">
+                    प्रमाणित सामाजिक परिणाम व वार्षिक प्रभाव रिपोर्ट
+                </span>
+
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight drop-shadow" data-hi="जौनपुर की ग्रामीण महिलाओं के जीवन में आया वास्तविक परिवर्तन" data-en="Real Transformation Created in Rural Jaunpur">
+                    जौनपुर की ग्रामीण महिलाओं के जीवन में आया वास्तविक परिवर्तन
+                </h1>
+
+                <p class="text-slate-200 text-sm sm:text-lg max-w-3xl mx-auto font-normal leading-relaxed" data-hi="महिला फाउंडेशन ट्रस्ट (देवकली, केराकत, जौनपुर) द्वारा संचालित कौशल विकास, बालिका शिक्षा, स्वास्थ्य जागरूकता एवं महिला स्वावलंबन कार्यक्रमों के पारदर्शी परिणाम।" data-en="Comprehensive analytics, verified stats, and grassroots impact report from Deokali, Kerakat, Jaunpur (Uttar Pradesh).">
+                    महिला फाउंडेशन ट्रस्ट (देवकली, केराकत, जौनपुर) द्वारा संचालित कौशल विकास, बालिका शिक्षा, स्वास्थ्य जागरूकता एवं महिला स्वावलंबन कार्यक्रमों के पारदर्शी परिणाम।
+                </p>
+
+                <!-- Hero CTAs -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="openDonateModal()" class="w-full sm:w-auto bg-brand-saffron hover:bg-amber-600 text-slate-900 text-base font-extrabold px-8 py-3.5 rounded-full shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fas fa-hand-holding-heart text-slate-900"></i>
+                        <span data-hi="इस बदलाव में सहयोग करें (Donate)" data-en="Support This Impact">इस बदलाव में सहयोग करें (Donate)</span>
+                    </button>
+                    <a href="#reports" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 text-base font-bold px-8 py-3.5 rounded-full transition flex items-center justify-center gap-2">
+                        <i class="fas fa-file-pdf text-brand-saffron"></i>
+                        <span data-hi="ऑडिट रिपोर्ट देखें" data-en="View Audit Reports">ऑडिट रिपोर्ट देखें</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Metrics & Counter Overview Section -->
+        <section id="overview" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Stat Card 1 -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-xl text-center transform hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-rose-100 text-brand-maroon flex items-center justify-center text-2xl mb-3">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-brand-maroon">5,240+</div>
+                    <div class="text-xs sm:text-sm font-bold text-slate-600 mt-1" data-hi="प्रशिक्षित एवं स्वावलंबी महिलाएँ" data-en="Women Trained">प्रशिक्षित एवं स्वावलंबी महिलाएँ</div>
+                    <span class="text-[10px] text-emerald-600 font-bold block mt-2" data-hi="✓ 24 गाँव केराकत तहसील" data-en="✓ 24 Villages in Kerakat">✓ 24 गाँव केराकत तहसील</span>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-xl text-center transform hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-amber-100 text-brand-saffron flex items-center justify-center text-2xl mb-3">
+                        <i class="fas fa-book-open-reader"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-brand-saffron">1,280+</div>
+                    <div class="text-xs sm:text-sm font-bold text-slate-600 mt-1" data-hi="बालिकाओं को शिक्षा किट व स्कॉलरशिप" data-en="Girls Educated">बालिकाओं को शिक्षा किट व स्कॉलरशिप</div>
+                    <span class="text-[10px] text-emerald-600 font-bold block mt-2" data-hi="✓ ड्रॉप-आउट दर में 60% कमी" data-en="✓ 60% Dropout Reduction">✓ ड्रॉप-आउट दर में 60% कमी</span>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-xl text-center transform hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-brand-forest flex items-center justify-center text-2xl mb-3">
+                        <i class="fas fa-briefcase-medical"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-brand-forest">85+</div>
+                    <div class="text-xs sm:text-sm font-bold text-slate-600 mt-1" data-hi="निःशुल्क स्वास्थ्य व नेत्र जाँच कैंप" data-en="Health Camps Organised">निःशुल्क स्वास्थ्य व नेत्र जाँच कैंप</div>
+                    <span class="text-[10px] text-emerald-600 font-bold block mt-2" data-hi="✓ 12,000+ मरीज लाभान्वित" data-en="✓ 12,000+ Patients Treated">✓ 12,000+ मरीज लाभान्वित</span>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-xl text-center transform hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-3">
+                        <i class="fas fa-people-roof"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-blue-800">160+</div>
+                    <div class="text-xs sm:text-sm font-bold text-slate-600 mt-1" data-hi="महिला स्वयं सहायता समूह (SHG)" data-en="Self Help Groups Formed">महिला स्वयं सहायता समूह (SHG)</div>
+                    <span class="text-[10px] text-emerald-600 font-bold block mt-2" data-hi="✓ माइक्रो-फाइनेंस सहायता" data-en="✓ Micro-finance Support">✓ माइक्रो-फाइनेंस सहायता</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Analytics & Impact Breakdown Section -->
+        <section id="analytics" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-maroon font-extrabold text-xs tracking-widest uppercase" data-hi="प्रभाव का संपूर्ण विश्लेषण" data-en="IMPACT BREAKDOWN">प्रभाव का संपूर्ण विश्लेषण</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1" data-hi="विभिन्न क्षेत्रों में ट्रस्ट के मुख्य परिणाम" data-en="Core Deliverables Across Key Sectors">
+                    विभिन्न क्षेत्रों में ट्रस्ट के मुख्य परिणाम
+                </h2>
+                <p class="text-slate-600 text-xs sm:text-base mt-2" data-hi="नीचे दिए गए चार्ट एवं आंकड़ों के माध्यम से देखें कि आपकी सहायता से जौनपुर में विकास किस प्रकार हुआ है।" data-en="Interactive breakdown of how Mahil Foundation Trust utilizes donations for maximum grassroots impact.">
+                    नीचे दिए गए चार्ट एवं आंकड़ों के माध्यम से देखें कि आपकी सहायता से जौनपुर में विकास किस प्रकार हुआ है।
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Left: Chart Visualization -->
+                <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200 shadow-lg flex flex-col items-center">
+                    <h3 class="font-bold text-slate-800 text-sm mb-4" data-hi="बजट एवं प्रभाव आवंटन (%)" data-en="Impact Allocation (%)">बजट एवं प्रभाव आवंटन (%)</h3>
+                    <div class="w-full max-w-[280px]">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                    <p class="text-[11px] text-slate-500 text-center mt-4" data-hi="* वित्तीय वर्ष 2024–2026 के आंतरिक ऑडिट एवं ज़मीनी सर्वे के अनुसार" data-en="* Based on FY 2024-2026 internal audit and field surveys">
+                        * वित्तीय वर्ष 2024–2026 के आंतरिक ऑडिट एवं ज़मीनी सर्वे के अनुसार
+                    </p>
+                </div>
+
+                <!-- Right: Progress Indicator Bars -->
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-lg space-y-6">
+                    <h3 class="text-xl font-extrabold text-brand-maroon" data-hi="क्षेत्रवार मुख्य उपलब्धियाँ (Key Deliverables)" data-en="Sectoral Achievements">
+                        क्षेत्रवार मुख्य उपलब्धियाँ (Key Deliverables)
+                    </h3>
+
+                    <!-- Bar 1: Skill Training -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-bold mb-1">
+                            <span class="text-slate-800" data-hi="सिलाई, कढ़ाई एवं हस्तशिल्प प्रशिक्षण (Vocational Training)" data-en="Vocational Skill Training">सिलाई, कढ़ाई एवं हस्तशिल्प प्रशिक्षण</span>
+                            <span class="text-brand-maroon font-extrabold">92% Target Achieved</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-3.5 overflow-hidden">
+                            <div class="bg-brand-maroon h-3.5 rounded-full" style="width: 92%"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-1" data-hi="3500+ महिलाओं को निःशुल्क सिलाई मशीन व स्वरोजगार प्रमाण पत्र दिए गए।" data-en="3500+ women provided free sewing equipment and enterprise kits.">3500+ महिलाओं को निःशुल्क सिलाई मशीन व स्वरोजगार प्रमाण पत्र दिए गए।</p>
+                    </div>
+
+                    <!-- Bar 2: Education -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-bold mb-1">
+                            <span class="text-slate-800" data-hi="बालिका शिक्षा एवं स्कूल ड्रॉपआउट रोकथाम (Girl Education)" data-en="Girl Child Literacy Drive">बालिका शिक्षा एवं स्कूल ड्रॉपआउट रोकथाम</span>
+                            <span class="text-brand-saffron font-extrabold">88% Target Achieved</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-3.5 overflow-hidden">
+                            <div class="bg-brand-saffron h-3.5 rounded-full" style="width: 88%"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-1" data-hi="केराकत ब्लॉक के 18 प्राथमिक स्कूलों में नि:शुल्क स्टेशनरी व ट्यूशन सहायता।" data-en="Free study kits and remedial classes provided across 18 rural schools.">केराकत ब्लॉक के 18 प्राथमिक स्कूलों में नि:शुल्क स्टेशनरी व ट्यूशन सहायता।</p>
+                    </div>
+
+                    <!-- Bar 3: Healthcare -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-bold mb-1">
+                            <span class="text-slate-800" data-hi="महिला स्वास्थ्य, सेनेटरी पैड वितरण व स्वास्थ्य जाँच" data-en="Health & Hygiene Distribution">महिला स्वास्थ्य, सेनेटरी पैड वितरण व स्वास्थ्य जाँच</span>
+                            <span class="text-brand-forest font-extrabold">95% Target Achieved</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-3.5 overflow-hidden">
+                            <div class="bg-brand-forest h-3.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-1" data-hi="25,000+ हाइजीन किट एवं सेनेटरी पैड का निःशुल्क वितरण सम्पन्न।" data-en="25,000+ hygiene kits distributed with maternal health guidance.">25,000+ हाइजीन किट एवं सेनेटरी पैड का निःशुल्क वितरण सम्पन्न।</p>
+                    </div>
+
+                    <!-- Bar 4: Legal Aid -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-bold mb-1">
+                            <span class="text-slate-800" data-hi="कानूनी परामर्श एवं महिला अधिकार जागरूकता" data-en="Legal Aid & Domestic Safety">कानूनी परामर्श एवं महिला अधिकार जागरूकता</span>
+                            <span class="text-blue-700 font-extrabold">80% Target Achieved</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-3.5 overflow-hidden">
+                            <div class="bg-blue-700 h-3.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-1" data-hi="450+ मामलों में घरेलू हिंसा निवारण व निःशुल्क परामर्श प्रदान किया गया।" data-en="450+ cases resolved through legal awareness and counseling.">450+ मामलों में घरेलू हिंसा निवारण व निःशुल्क परामर्श प्रदान किया गया।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before & After Transformation Success Stories -->
+        <section id="stories" class="py-16 bg-white border-t border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-saffron font-extrabold text-xs tracking-widest uppercase" data-hi="वास्तविक बदलाव" data-en="REAL STORIES">वास्तविक बदलाव</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-brand-maroon mt-1" data-hi="सफलता एवं स्वावलंबन की कहानियाँ" data-en="Transformation Stories from Kerakat">
+                        सफलता एवं स्वावलंबन की कहानियाँ
+                    </h2>
+                    <p class="text-slate-600 text-xs sm:text-base mt-2" data-hi="जानिए कैसे देवकली एवं केराकत क्षेत्र की महिलाओं ने आत्मनिर्भरता की मिसाल कायम की।" data-en="Inspiring before-and-after journeys of beneficiaries in Jaunpur district.">
+                        जानिए कैसे देवकली एवं केराकत क्षेत्र की महिलाओं ने आत्मनिर्भरता की मिसाल कायम की।
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Story Card 1 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col justify-between hover:shadow-xl transition">
+                        <div>
+                            <div class="relative h-48 bg-slate-200">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Sunita Devi" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-brand-maroon text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase" data-hi="ग्राम - देवकली, केराकत" data-en="Deokali Village">ग्राम - देवकली, केराकत</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-extrabold text-lg text-slate-900">सुनीता देवी (सिलाई केंद्र संचालिका)</h3>
+                                <p class="text-xs text-brand-saffron font-bold mt-0.5" data-hi="मासिक आय: ₹0 ➔ ₹14,000/माह" data-en="Monthly Income: ₹0 ➔ ₹14,000/mo">मासिक आय: ₹0 ➔ ₹14,000/माह</p>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed" data-hi="“महिला फाउंडेशन ट्रस्ट के 6 महीने के निःशुल्क सिलाई प्रशिक्षण के बाद अब मेरी खुद की दुकान है। अब मैं बच्चों की स्कूल फीस खुद जमा करती हूँ।”" data-en="“After completing 6 months of free sewing training at the Trust, I now run my own tailoring shop and independently fund my children's education.”">
+                                    “महिला फाउंडेशन ट्रस्ट के 6 महीने के निःशुल्क सिलाई प्रशिक्षण के बाद अब मेरी खुद की दुकान है। अब मैं बच्चों की स्कूल फीस खुद जमा करती हूँ।”
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span class="inline-block w-full text-center py-2 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-xs" data-hi="✓ आत्मनिर्भर लाभार्थी 2024" data-en="✓ Empowered Beneficiary 2024">✓ आत्मनिर्भर लाभार्थी 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Story Card 2 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col justify-between hover:shadow-xl transition">
+                        <div>
+                            <div class="relative h-48 bg-slate-200">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600" alt="Priya Kumari" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-brand-saffron text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase" data-hi="ग्राम - डोभी, जौनपुर" data-en="Dobhi Village">ग्राम - डोभी, जौनपुर</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-extrabold text-lg text-slate-900">प्रिया कुमारी (छात्रा, 12वीं कक्षा)</h3>
+                                <p class="text-xs text-brand-saffron font-bold mt-0.5" data-hi="शिक्षा छात्रवृत्ति एवं पुस्तक सहायता" data-en="Scholarship & Book Support">शिक्षा छात्रवृत्ति एवं पुस्तक सहायता</p>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed" data-hi="“आर्थिक तंगी के कारण मेरी पढ़ाई छूटने वाली थी। ट्रस्ट ने मुझे पूरी पुस्तकें और छात्रवृत्ति दी, जिससे मैं अब कॉलेज जाने का सपना पूरा कर रही हूँ।”" data-en="“Due to financial hardship, I was about to drop out. Mahil Foundation Trust supported my schooling and books, enabling me to pursue higher studies.”">
+                                    “आर्थिक तंगी के कारण मेरी पढ़ाई छूटने वाली थी। ट्रस्ट ने मुझे पूरी पुस्तकें और छात्रवृत्ति दी, जिससे मैं अब कॉलेज जाने का सपना पूरा कर रही हूँ।”
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span class="inline-block w-full text-center py-2 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-xs" data-hi="✓ बालिका शिक्षा लाभार्थी 2025" data-en="✓ Literacy Beneficiary 2025">✓ बालिका शिक्षा लाभार्थी 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Story Card 3 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col justify-between hover:shadow-xl transition">
+                        <div>
+                            <div class="relative h-48 bg-slate-200">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600" alt="Radha Singh" class="w-full h-full object-cover">
+                                <span class="absolute top-3 left-3 bg-brand-maroon text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase" data-hi="केराकत कस्बा" data-en="Kerakat Town">केराकत कस्बा</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-extrabold text-lg text-slate-900">राधा सिंह (SHG समूह अध्यक्ष)</h3>
+                                <p class="text-xs text-brand-saffron font-bold mt-0.5" data-hi="12 महिलाओं का समूह संचालन" data-en="Leading 12 Women SHG">12 महिलाओं का समूह संचालन</p>
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed" data-hi="“महिला फाउंडेशन ट्रस्ट ने हमें बैंक लोन और आचार-पापड़ उद्योग लगाने में पूरी मदद की। आज हम 12 महिलाएँ अपने पैरों पर खड़ी हैं।”" data-en="“The Trust guided us to form a Self-Help Group and access micro-credit. Today 12 women in our village earn steady independent livelihoods.”">
+                                    “महिला फाउंडेशन ट्रस्ट ने हमें बैंक लोन और आचार-पापड़ उद्योग लगाने में पूरी मदद की। आज हम 12 महिलाएँ अपने पैरों पर खड़ी हैं।”
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6">
+                            <span class="inline-block w-full text-center py-2 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-xs" data-hi="✓ स्वयं सहायता समूह 2025" data-en="✓ SHG Leader 2025">✓ स्वयं सहायता समूह 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Annual Audit Reports & Document Download Preview Section -->
+        <section id="reports" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-brand-maroon font-extrabold text-xs tracking-widest uppercase" data-hi="पारदर्शिता व जवाबदेही" data-en="TRANSPARENCY & AUDIT">पारदर्शिता व जवाबदेही</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-1" data-hi="वार्षिक प्रगति व ऑडिट रिपोर्ट्स (Reports Download)" data-en="Annual Progress & Audit Reports">
+                    वार्षिक प्रगति व ऑडिट रिपोर्ट्स (Reports Download)
+                </h2>
+                <p class="text-slate-600 text-xs sm:text-base mt-2" data-hi="महिला फाउंडेशन ट्रस्ट पूरी पारदर्शिता में विश्वास रखता है। आप हमारी वर्षवार रिपोर्ट्स डाउनलोड या देख सकते हैं।" data-en="Download or preview audited financial statements and annual impact documentations.">
+                    महिला फाउंडेशन ट्रस्ट पूरी पारदर्शिता में विश्वास रखता है। आप हमारी वर्षवार रिपोर्ट्स डाउनलोड या देख सकते हैं।
+                </p>
+            </div>
+
+            <!-- Report Filter & Card Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Report Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-brand-saffron bg-amber-50 px-2.5 py-1 rounded border border-amber-200">FY 2025–2026</span>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-extrabold">Verified</span>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-brand-maroon" data-hi="वार्षिक प्रभाव एवं बैलेंस शीट" data-en="Annual Impact & Financial Audit">वार्षिक प्रभाव एवं बैलेंस शीट</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed" data-hi="केराकत व जौनपुर क्षेत्र में कौशल केंद्रों का विस्तार, 1200+ बालिकाओं को छात्रवृत्ति एवं 80G टैक्स रिपोर्ट।" data-en="Expansion of skill centers in Kerakat, 1200+ girl child scholarships, and 80G compliance audit.">
+                            केराकत व जौनपुर क्षेत्र में कौशल केंद्रों का विस्तार, 1200+ बालिकाओं को छात्रवृत्ति एवं 80G टैक्स रिपोर्ट।
+                        </p>
+                    </div>
+                    <button onclick="previewReport('Report 2025-2026')" class="w-full bg-brand-maroon hover:bg-brand-maroonlight text-white font-bold py-2.5 rounded-lg text-xs transition flex items-center justify-center gap-2">
+                        <i class="fas fa-file-pdf"></i>
+                        <span data-hi="रिपोर्ट देखें / डाउनलोड करें" data-en="Preview Report PDF">रिपोर्ट देखें / डाउनलोड करें</span>
+                    </button>
+                </div>
+
+                <!-- Report Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded">FY 2024–2025</span>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-extrabold">Verified</span>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-slate-800" data-hi="ग्रामीण स्वास्थ्य शिविर रिपोर्ट" data-en="Rural Health & Hygiene Report">ग्रामीण स्वास्थ्य शिविर रिपोर्ट</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed" data-hi="40+ निःशुल्क स्वास्थ्य एवं नेत्र जाँच शिविरों का लेखा-जोखा व सेनेटरी पैड वितरण रिपोर्ट।" data-en="Summary of 40+ free medical and eye screening camps with sanitary pad distribution data.">
+                            40+ निःशुल्क स्वास्थ्य एवं नेत्र जाँच शिविरों का लेखा-जोखा व सेनेटरी पैड वितरण रिपोर्ट।
+                        </p>
+                    </div>
+                    <button onclick="previewReport('Report 2024-2025')" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-lg text-xs transition flex items-center justify-center gap-2">
+                        <i class="fas fa-file-pdf"></i>
+                        <span data-hi="रिपोर्ट देखें / डाउनलोड करें" data-en="Preview Report PDF">रिपोर्ट देखें / डाउनलोड करें</span>
+                    </button>
+                </div>
+
+                <!-- Report Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md hover:shadow-xl transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded">FY 2023–2024</span>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-extrabold">Verified</span>
+                        </div>
+                        <h3 class="font-extrabold text-lg text-slate-800" data-hi="संस्था का वार्षिक रिपोर्ट पत्रक" data-en="Foundation Inception Audit">संस्था का वार्षिक रिपोर्ट पत्रक</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed" data-hi="देवकली केराकत में प्रथम प्रशिक्षण केंद्र की स्थापना एवं प्राथमिक परिणामों का विवरण।" data-en="Inception audit report covering the launch of the first training unit at Deokali, Kerakat.">
+                            देवकली केराकत में प्रथम प्रशिक्षण केंद्र की स्थापना एवं प्राथमिक परिणामों का विवरण।
+                        </p>
+                    </div>
+                    <button onclick="previewReport('Report 2023-2024')" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-lg text-xs transition flex items-center justify-center gap-2">
+                        <i class="fas fa-file-pdf"></i>
+                        <span data-hi="रिपोर्ट देखें / डाउनलोड करें" data-en="Preview Report PDF">रिपोर्ट देखें / डाउनलोड करें</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Action Callout Section -->
+        <section class="py-12 bg-gradient-to-r from-brand-maroon via-brand-maroonlight to-brand-saffron text-white shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-black" data-hi="आपकी एक छोटी सी मदद किसी परिवार की किस्मत बदल सकती है" data-en="Join Us in Driving Measurable Rural Transformation">
+                        आपकी एक छोटी सी मदद किसी परिवार की किस्मत बदल सकती है
+                    </h3>
+                    <p class="text-amber-100 text-xs sm:text-sm mt-1" data-hi="80G आयकर छूट रसीद तुरंत प्राप्त करें। स्थान: देवकली, केराकत, जौनपुर।" data-en="80G Tax Exemption Receipts Provided Instantly. Based in Deokali, Kerakat, Jaunpur.">
+                        80G आयकर छूट रसीद तुरंत प्राप्त करें। स्थान: देवकली, केराकत, जौनपुर।
+                    </p>
+                </div>
+                <button onclick="openDonateModal()" class="bg-white text-brand-maroon hover:bg-amber-50 font-black px-8 py-3.5 rounded-full shadow-lg transition transform hover:scale-105 shrink-0 flex items-center gap-2">
+                    <i class="fas fa-heart text-brand-saffron"></i>
+                    <span data-hi="सहयोग राशि दान करें" data-en="Donate Now">सहयोग राशि दान करें</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Verified Contact Us Section with Direct Phone & Map -->
+        <section id="contact" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    
+                    <!-- Left: Verified Contact Info -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-brand-maroon font-extrabold text-xs tracking-widest uppercase" data-hi="प्रमाणित कार्यालय पता" data-en="OFFICIAL ADDRESS">प्रमाणित कार्यालय पता</span>
+                            <h2 class="text-3xl font-black text-slate-900 mt-1" data-hi="महिला फाउंडेशन ट्रस्ट संपर्क केंद्र" data-en="Contact Mahil Foundation Trust">
+                                महिला फाउंडेशन ट्रस्ट संपर्क केंद्र
+                            </h2>
+                            <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed" data-hi="किसी भी प्रकार के सवाल, दान रसीद, या स्वयंसेवक बनने हेतु सीधा संपर्क करें।" data-en="Feel free to connect with our official office for receipts, donations, or volunteering.">
+                                किसी भी प्रकार के सवाल, दान रसीद, या स्वयंसेवक बनने हेतु सीधा संपर्क करें।
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Address -->
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-rose-50 text-brand-maroon flex items-center justify-center shrink-0 text-xl font-bold">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm" data-hi="कार्यालय का पता (Address):" data-en="Trust Registered Address:">कार्यालय का पता (Address):</h4>
+                                    <p class="text-slate-700 text-xs sm:text-sm mt-1 font-semibold">
+                                        देवकली, पोस्ट - केराकत, जिला - जौनपुर, उत्तर प्रदेश - 222142
+                                    </p>
+                                    <span class="text-[11px] text-slate-500">(Deokali, Kerakat, Jaunpur, Uttar Pradesh - 222142)</span>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-amber-50 text-brand-saffron flex items-center justify-center shrink-0 text-xl font-bold">
+                                    <i class="fas fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm" data-hi="आधिकारिक फ़ोन नंबर (Phone):" data-en="Verified Phone Numbers:">आधिकारिक फ़ोन नंबर (Phone):</h4>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <a href="tel:+918737066742" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 hover:bg-emerald-100 transition">
+                                            <i class="fas fa-phone text-emerald-600"></i> +91 87370 66742
+                                        </a>
+                                        <a href="tel:+919565757775" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 hover:bg-emerald-100 transition">
+                                            <i class="fas fa-phone text-emerald-600"></i> +91 95657 57775
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 text-xl font-bold">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm" data-hi="ईमेल आईडी (Official Email):" data-en="Official Email Address:">ईमेल आईडी (Official Email):</h4>
+                                    <a href="mailto:mahilfoundatiotrust@gmail.com" class="text-brand-maroon font-bold text-xs sm:text-sm hover:underline mt-1 block">
+                                        mahilfoundatiotrust@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map Embed -->
+                        <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-60">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.410925299!2d82.9100!3d25.6400!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399026be188a1e2f%3A0x6b772df48680c2f!2sKerakat%2C%20Uttar%20Pradesh%20222142!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-black text-brand-maroon mb-1" data-hi="संदेह या प्रश्न पूछें" data-en="Send Us Inquiry">संदेह या प्रश्न पूछें</h3>
+                            <p class="text-xs text-slate-500 mb-6" data-hi="फॉर्म भरें, हमारी टीम 24 घंटे में आपसे संपर्क करेगी।" data-en="Fill out the form and our coordinator will respond promptly.">फॉर्म भरें, हमारी टीम 24 घंटे में आपसे संपर्क करेगी।</p>
+
+                            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="पूरा नाम *" data-en="Full Name *">पूरा नाम *</label>
+                                    <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-maroon focus:outline-none text-xs sm:text-sm" placeholder="उदा. राजेश कुमार">
+                                </div>
+
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="मोबाइल नंबर *" data-en="Mobile No *">मोबाइल नंबर *</label>
+                                        <input type="tel" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-maroon focus:outline-none text-xs sm:text-sm" placeholder="8737066742">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="ईमेल आईडी" data-en="Email Address">ईमेल आईडी</label>
+                                        <input type="email" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-maroon focus:outline-none text-xs sm:text-sm" placeholder="name@email.com">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="विषय" data-en="Subject">विषय</label>
+                                    <input type="text" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-maroon focus:outline-none text-xs sm:text-sm" placeholder="उदा. दान रसीद या सिलाई केंद्र जानकारी">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="आपका संदेश *" data-en="Message *">आपका संदेश *</label>
+                                    <textarea rows="4" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-maroon focus:outline-none text-xs sm:text-sm" placeholder="अपना संदेश यहाँ लिखें..."></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-brand-maroon hover:bg-brand-maroonlight text-white font-bold py-3 rounded-lg shadow-md transition" data-hi="संदेश भेजें" data-en="Submit Inquiry">
+                                    संदेश भेजें
+                                </button>
+                            </form>
+
+                            <div id="contact-success" class="hidden mt-4 p-3 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold text-center border border-emerald-200">
+                                ✓ आपका संदेश सफलतापूर्वक भेज दिया गया है। धन्यवाद!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-slate text-white pt-12 pb-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-maroon flex items-center justify-center text-white font-black text-sm">
+                            <i class="fas fa-hands-holding-child"></i>
+                        </div>
+                        <span class="font-bold text-lg text-white" data-hi="महिला फाउंडेशन ट्रस्ट" data-en="Mahil Foundation Trust">महिला फाउंडेशन ट्रस्ट</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-hi="ग्राम देवकली, पो. केराकत, जिला जौनपुर (उत्तर प्रदेश) में स्थित पंजीकृत गैर-लाभकारी सामाजिक संस्था।" data-en="A registered non-profit organization serving rural women in Deokali, Kerakat, Jaunpur.">
+                        ग्राम देवकली, पो. केराकत, जिला जौनपुर (उत्तर प्रदेश) में स्थित पंजीकृत गैर-लाभकारी सामाजिक संस्था।
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-saffron uppercase tracking-wider mb-3" data-hi="त्वरित लिंक" data-en="Quick Links">त्वरित लिंक</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><a href="#overview" class="hover:text-brand-saffron transition" data-hi="मुख्य परिणाम" data-en="Results Overview">मुख्य परिणाम</a></li>
+                        <li><a href="#analytics" class="hover:text-brand-saffron transition" data-hi="प्रभाव विश्लेषण" data-en="Impact Analytics">प्रभाव विश्लेषण</a></li>
+                        <li><a href="#stories" class="hover:text-brand-saffron transition" data-hi="सफलता की कहानियाँ" data-en="Success Stories">सफलता की कहानियाँ</a></li>
+                        <li><a href="#reports" class="hover:text-brand-saffron transition" data-hi="ऑडिट रिपोर्ट्स" data-en="Annual Reports">ऑडिट रिपोर्ट्स</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-saffron uppercase tracking-wider mb-3" data-hi="संपर्क सूत्र" data-en="Direct Contact">संपर्क सूत्र</h4>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><i class="fas fa-phone text-brand-saffron mr-1.5"></i> +91 87370 66742</li>
+                        <li><i class="fas fa-mobile text-brand-saffron mr-1.5"></i> +91 95657 57775</li>
+                        <li><i class="fas fa-envelope text-brand-saffron mr-1.5"></i> mahilfoundatiotrust@gmail.com</li>
+                        <li><i class="fas fa-location-dot text-brand-saffron mr-1.5"></i> देवकली, केराकत, जौनपुर - 222142</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-saffron uppercase tracking-wider mb-3" data-hi="80G कर छूट स्वीकृत" data-en="80G Tax Exemption">80G कर छूट स्वीकृत</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-3" data-hi="ट्रस्ट में दिया गया दान आयकर अधिनियम की धारा 80G के तहत कर-मुक्त है।" data-en="Donations eligible for 80G Tax Deduction under Income Tax Act.">
+                        ट्रस्ट में दिया गया दान आयकर अधिनियम की धारा 80G के तहत कर-मुक्त है।
+                    </p>
+                    <button onclick="openDonateModal()" class="w-full text-xs bg-brand-saffron hover:bg-amber-600 text-slate-900 font-bold py-2 rounded transition shadow">
+                        <span data-hi="दान प्रक्रिया शुरू करें" data-en="Donate Online">दान प्रक्रिया शुरू करें</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>© 2026 महिला फाउंडेशन ट्रस्ट (Mahil Foundation Trust). All rights reserved.</p>
+                <p class="text-slate-400">Deokali, Kerakat, Jaunpur, Uttar Pradesh - 222142</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE DONATION MODAL -->
+    <div id="donate-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+            <div class="bg-gradient-to-r from-brand-maroon to-brand-saffron text-white p-5 flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-bold" data-hi="महिला फाउंडेशन ट्रस्ट - ऑनलाइन दान" data-en="Donate to Mahil Foundation Trust">महिला फाउंडेशन ट्रस्ट - ऑनलाइन दान</h3>
+                    <span class="text-[10px] bg-black/20 px-2 py-0.5 rounded text-amber-100" data-hi="80G आयकर छूट रसीद उपलब्ध" data-en="80G Tax Benefit Available">80G आयकर छूट रसीद उपलब्ध</span>
+                </div>
+                <button onclick="closeDonateModal()" class="text-white text-2xl font-bold focus:outline-none">&times;</button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-2" data-hi="सहयोग राशि चुनें (₹)" data-en="Select Amount (₹)">सहयोग राशि चुनें (₹)</label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button onclick="setAmount(500)" class="border-2 border-slate-200 py-2 rounded-lg font-bold text-slate-700 hover:border-brand-maroon hover:text-brand-maroon text-xs transition">₹500</button>
+                        <button onclick="setAmount(1000)" class="border-2 border-slate-200 py-2 rounded-lg font-bold text-slate-700 hover:border-brand-maroon hover:text-brand-maroon text-xs transition">₹1,000</button>
+                        <button onclick="setAmount(2100)" class="border-2 border-slate-200 py-2 rounded-lg font-bold text-slate-700 hover:border-brand-maroon hover:text-brand-maroon text-xs transition">₹2,100</button>
+                        <button onclick="setAmount(5000)" class="border-2 border-slate-200 py-2 rounded-lg font-bold text-slate-700 hover:border-brand-maroon hover:text-brand-maroon text-xs transition">₹5,000</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="या अन्य राशि दर्ज करें (₹)" data-en="Custom Amount (₹)">या अन्य राशि दर्ज करें (₹)</label>
+                    <input type="number" id="custom-amount" placeholder="उदा. 1500" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none">
+                </div>
+
+                <!-- UPI QR Simulator -->
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-center space-y-2">
+                    <span class="text-xs font-bold text-slate-700 block" data-hi="स्कैन करके भुगतान करें (UPI QR Code)" data-en="Scan & Pay via UPI">स्कैन करके भुगतान करें (UPI QR Code)</span>
+                    <div class="w-32 h-32 bg-white p-2 mx-auto border border-slate-300 rounded-lg shadow-inner flex items-center justify-center">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=mahilfoundatiotrust@upi&pn=Mahil%20Foundation%20Trust" alt="UPI QR" class="w-full h-full object-contain">
+                    </div>
+                    <span class="text-[10px] text-slate-500 block">UPI ID: mahilfoundatiotrust@upi</span>
+                </div>
+
+                <!-- Donor Info -->
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="दानदाता का नाम *" data-en="Donor Full Name *">दानदाता का नाम *</label>
+                        <input type="text" id="donor-name" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none" placeholder="उदा. अंजलि सिंह">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="मोबाइल नंबर *" data-en="Mobile No *">मोबाइल नंबर *</label>
+                            <input type="tel" id="donor-phone" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none" placeholder="8737066742">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="पैन (80G रसीद हेतु)" data-en="PAN Card (For 80G)">पैन (80G रसीद हेतु)</label>
+                            <input type="text" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none" placeholder="ABCDE1234F">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="donate-message" class="hidden p-3 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold text-center border border-emerald-200">
+                    🎉 आपके बहुमूल्य सहयोग के लिए महिला फाउंडेशन ट्रस्ट आपका आभारी है!
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-4 border-t border-slate-200 flex justify-between items-center">
+                <span class="text-[10px] text-slate-500"><i class="fas fa-shield text-emerald-600 mr-1"></i> 100% Encrypted</span>
+                <button onclick="processDonation()" class="bg-brand-maroon hover:bg-brand-maroonlight text-white font-bold px-6 py-2 rounded-lg text-xs transition">
+                    <span data-hi="दान प्रक्रिया पूर्ण करें" data-en="Complete Donation">दान प्रक्रिया पूर्ण करें</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VOLUNTEER REGISTRATION MODAL -->
+    <div id="volunteer-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl relative">
+            <div class="bg-brand-slate text-white p-5 flex justify-between items-center">
+                <div>
+                    <h3 class="text-lg font-bold" data-hi="स्वयंसेवक (Volunteer) बनें" data-en="Become a Volunteer">स्वयंसेवक बनें</h3>
+                    <p class="text-xs text-slate-300" data-hi="केराकत, जौनपुर क्षेत्र में जमीनी सहयोग दें" data-en="Serve grassroots communities in Kerakat, Jaunpur">केराकत, जौनपुर क्षेत्र में जमीनी सहयोग दें</p>
+                </div>
+                <button onclick="closeVolunteerModal()" class="text-white text-2xl font-bold">&times;</button>
+            </div>
+
+            <form onsubmit="handleVolunteerSubmit(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="आपका नाम *" data-en="Full Name *">आपका नाम *</label>
+                    <input type="text" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="मोबाइल नंबर *" data-en="Phone Number *">मोबाइल नंबर *</label>
+                    <input type="tel" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1" data-hi="रुचि का क्षेत्र" data-en="Domain of Interest">रुचि का क्षेत्र</label>
+                    <select class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:ring-2 focus:ring-brand-maroon focus:outline-none">
+                        <option value="skill" data-hi="सिलाई एवं स्वरोजगार केंद्र" data-en="Sewing & Skill Center">सिलाई एवं स्वरोजगार केंद्र</option>
+                        <option value="education" data-hi="बालिका शिक्षा सहायता" data-en="Teaching & Literacy">बालिका शिक्षा सहायता</option>
+                        <option value="health" data-hi="स्वास्थ्य कैंप संचालन" data-en="Health Camps Support">स्वास्थ्य कैंप संचालन</option>
+                    </select>
+                </div>
+
+                <div id="volunteer-success" class="hidden p-3 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold text-center">
+                    ✓ आपका स्वयंसेवक आवेदन जमा हो गया है। धन्यवाद!
+                </div>
+
+                <button type="submit" class="w-full bg-brand-maroon hover:bg-brand-maroonlight text-white font-bold py-2.5 rounded-lg text-xs transition">
+                    <span data-hi="आवेदन जमा करें" data-en="Submit Registration">आवेदन जमा करें</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- REPORT PREVIEW MODAL -->
+    <div id="report-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl relative p-6 space-y-4">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 id="report-title" class="font-black text-brand-maroon text-lg">रिपोर्ट पूर्वावलोकन</h3>
+                <button onclick="closeReportModal()" class="text-slate-500 hover:text-slate-800 text-2xl font-bold">&times;</button>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border text-center space-y-3">
+                <i class="fas fa-file-pdf text-brand-maroon text-5xl"></i>
+                <p class="text-xs text-slate-600 leading-relaxed" data-hi="महिला फाउंडेशन ट्रस्ट (देवकली, केराकत, जौनपुर) की आधिकारिक प्रमाणित रिपोर्ट का डिजिटल प्रारूप लोड हो रहा है।" data-en="Digital verification preview for Mahil Foundation Trust official documentation.">
+                    महिला फाउंडेशन ट्रस्ट (देवकली, केराकत, जौनपुर) की आधिकारिक प्रमाणित रिपोर्ट का डिजिटल प्रारूप लोड हो रहा है।
+                </p>
+                <div class="text-xs bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full font-bold inline-block">
+                    Status: Audited & Verified by Charted Accountant
+                </div>
+            </div>
+            <button onclick="closeReportModal()" class="w-full bg-brand-saffron hover:bg-amber-600 text-slate-900 font-extrabold py-2.5 rounded-lg text-xs transition">
+                <span data-hi="बंद करें" data-en="Close Preview">बंद करें</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions & Analytics Chart -->
+    <script>
+        let currentLang = 'hi';
+
+        // Mobile Nav Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Bilingual Toggle Switcher
+        function toggleLanguage(lang) {
+            currentLang = lang;
+            const elements = document.querySelectorAll('[data-hi][data-en]');
+            
+            elements.forEach(el => {
+                if (lang === 'en') {
+                    el.textContent = el.getAttribute('data-en');
+                } else {
+                    el.textContent = el.getAttribute('data-hi');
+                }
+            });
+
+            const btnHi = document.getElementById('btn-hi');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                btnEn.className = 'px-2.5 py-0.5 rounded-md text-xs font-bold bg-brand-maroon text-white transition';
+                btnHi.className = 'px-2.5 py-0.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition';
+            } else {
+                btnHi.className = 'px-2.5 py-0.5 rounded-md text-xs font-bold bg-brand-maroon text-white transition';
+                btnEn.className = 'px-2.5 py-0.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition';
+            }
+        }
+
+        // Modals
+        function openDonateModal() {
+            document.getElementById('donate-modal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeDonateModal() {
+            document.getElementById('donate-modal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+            document.getElementById('donate-message').classList.add('hidden');
+        }
+
+        function openVolunteerModal() {
+            document.getElementById('volunteer-modal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeVolunteerModal() {
+            document.getElementById('volunteer-modal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+            document.getElementById('volunteer-success').classList.add('hidden');
+        }
+
+        function previewReport(title) {
+            document.getElementById('report-title').textContent = title;
+            document.getElementById('report-modal').classList.remove('hidden');
+        }
+
+        function closeReportModal() {
+            document.getElementById('report-modal').classList.add('hidden');
+        }
+
+        function setAmount(val) {
+            document.getElementById('custom-amount').value = val;
+        }
+
+        function processDonation() {
+            const name = document.getElementById('donor-name').value;
+            const phone = document.getElementById('donor-phone').value;
+
+            if (!name || !phone) {
+                alert(currentLang === 'hi' ? 'कृपया अपना नाम और मोबाइल नंबर भरें।' : 'Please enter your name and phone number.');
+                return;
+            }
+
+            const msg = document.getElementById('donate-message');
+            msg.classList.remove('hidden');
+
+            setTimeout(() => {
+                closeDonateModal();
+            }, 3000);
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const msg = document.getElementById('contact-success');
+            msg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 4000);
+        }
+
+        function handleVolunteerSubmit(e) {
+            e.preventDefault();
+            const msg = document.getElementById('volunteer-success');
+            msg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                closeVolunteerModal();
+            }, 3000);
+        }
+
+        // Initialize Impact Chart
+        window.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['सिलाई/कौशल विकास', 'बालिका शिक्षा', 'स्वास्थ्य शिविर', 'कानूनी जागरूकता'],
+                    datasets: [{
+                        data: [42, 28, 18, 12],
+                        backgroundColor: ['#800020', '#d97706', '#15803d', '#1d4ed8'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 10,
+                                    family: 'Poppins'
+                                },
+                                boxWidth: 12
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
